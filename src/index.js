@@ -4,6 +4,11 @@ import ReactDOM from 'react-dom';
 
 import './styles.scss';
 
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+
+import PrimarySearchBar from './PrimarySearchBar';
+
 class App extends React.Component {
   state = {
     CaptainKirkBio: {},
@@ -26,7 +31,7 @@ class App extends React.Component {
         },
         body: {
           title: 'James T. Kirk',
-          name: 'James T. Kirk',
+          name: 'James T. Kirk',	
         },
       });
       const resultJSON = await result.json();
@@ -41,6 +46,7 @@ class App extends React.Component {
     const { CaptainKirkBio, Foo } = this.state;
     return (
       <div className="app">
+        <PrimarySearchBar />
         <img alt="header" src="/dist/images/header.jpg" className="app-header" />
         <p>
           We are a most promising species, Mr. Spock, as predators go. Did you know that? I
@@ -56,6 +62,9 @@ class App extends React.Component {
           )}
         </section>
         {Foo ? <Foo /> : <p>Foo is loading</p>}
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
       </div>
     );
   }
